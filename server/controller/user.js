@@ -100,14 +100,14 @@ module.exports = {
         return;
       }
       // 验证码判断
-      let mark = await check_token_code({token:code_token,code});
-      if(!mark){
-        ctx.body = {
-          code: 401,
-          msg: '登录失败，验证码错误!'
-        }
-        return;
-      }
+      // let mark = await check_token_code({token:code_token,code});
+      // if(!mark){
+      //   ctx.body = {
+      //     code: 401,
+      //     msg: '登录失败，验证码错误!'
+      //   }
+      //   return;
+      // }
       user_pwd = sha1(sha1(user_pwd + PWD_ENCODE_STR));
       let res = await User.find({user_id,user_pwd});
       if(res.length == 0){
