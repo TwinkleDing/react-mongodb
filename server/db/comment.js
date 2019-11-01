@@ -4,13 +4,14 @@ const Schema = mongoose.Schema;
 // 留言
 let commentSchema = new Schema({
     user_id: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
     },
+    user_name: String,
     content: String,
     create_time: {
-      type: String,
-      default: Date.now
+        type: String,
+        default: Date.now
     }
   })
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {userList as getList, regUser, loginUser} from '../api/user'
 import store from '../store/index'
+import {Button,Input} from 'antd';
+import '../App.css';
 
 function Users(props) {
     const [user, getUser] =useState({})
@@ -15,6 +17,9 @@ function Users(props) {
         axios.get(getList).then(({data})=>{
             getUser(data.data)
         })
+    }
+    function hideUserList() {
+        getUser({})
     }
     function handleChange(e,type) {
         let userInfo = addUser;
@@ -47,11 +52,11 @@ function Users(props) {
     function login() {
         axios.post(loginUser,addUser).then(({data})=>{
             console.log(data)
-            setUserInfo(addUser)
+            setUserInfo(data.data)
             alert(data.msg)
             const action = {
                 type: 'user',
-                value: addUser
+                value: data.data
             }
             store.dispatch(action)
             if(data.code === 200) {
@@ -65,20 +70,20 @@ function Users(props) {
         for(let i=0;i<userItem.length;i++){
             arr.push(<div key={i}>
                 <div>user_name：{userItem[i].user_name}</div>
-                <div>user_pwd：{userItem[i].user_pwd}</div>
-                <div>token：{userItem[i].token}</div>
                 <div>user_id：{userItem[i].user_id}</div>
+                <div>_id：{userItem[i]._id}</div>
             </div>)
         }
         return(arr)
     }
     return (
-        <div>
-            <input placeholder='用户名称' onChange={(e)=>handleChange(e,'name')} value={addUser.user_name} /><br />
-            <input placeholder='用户ID' onChange={(e)=>handleChange(e,'ids')} value={addUser.user_id} /><br />
-            <input placeholder='密码' onChange={(e)=>handleChange(e,'pass')} value={addUser.user_pwd} /><br />
-            <button onClick={addNewUser}>添加用户</button><button onClick={login}>登录</button><br />
-            <button onClick={userList}>查询用户列表</button>
+        <div className='login'>
+            <Input placeholder='用户名称' onChange={(e)=>handleChange(e,'name')} value={addUser.user_name} /><br />
+            <Input placeholder='用户ID' onChange={(e)=>handleChange(e,'ids')} value={addUser.user_id} /><br />
+            <Input placeholder='密码' onChange={(e)=>handleChange(e,'pass')} value={addUser.user_pwd} /><br />
+            <Button type="primary" onClick={addNewUser}>添加用户</Button><Button type="primary" onClick={login}>登录</Button><br />
+            <Button type="primary" onClick={userList}>查询用户列表</Button>
+            <Button type="primary" onClick={hideUserList}>隐藏用户列表</Button>
             <List />
         </div>
     );

@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 .App {
   text-align: center;
 }
@@ -19,4 +20,7 @@
 
 .App-link {
   color: #09d3ac;
+}
+.login{
+  width: 300px;
 }

@@ -1,4 +1,5 @@
 const Comment = require('../db').Comment
+const User = require('../db').User
 const xss = require("xss");
 
 module.exports = {
@@ -68,8 +69,11 @@ module.exports = {
     // 转义，防止xss攻击
     content = xss(content);
     try {
+      let user = await User.find({_id:ctx._id})
+      let user_name = user[0].user_name
       let comment = new Comment({
         user_id: ctx._id,
+        user_name,
         content
       });
       let res = await comment.save();
@@ -77,7 +81,8 @@ module.exports = {
         ctx.body = {
           code: 200,
           msg: '留言成功！',
-          data: res
+          data: res,
+          ss:user_name
         }
       }else{
         ctx.body = {
