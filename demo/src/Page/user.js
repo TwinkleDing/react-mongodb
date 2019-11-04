@@ -4,6 +4,7 @@ import {userList as getList, regUser, loginUser} from '../api/user'
 import store from '../store/index'
 import {Button,Input} from 'antd';
 import '../App.css';
+import Avatar from '../components/avatar'
 
 function Users(props) {
     const [user, getUser] =useState({})
@@ -45,7 +46,13 @@ function Users(props) {
         }
     }
     function addNewUser() {
-        axios.post(regUser,addUser).then(({data})=>{
+        let avatar = store.getState().avatar
+        console.log(avatar)
+        let params =addUser
+        if(avatar){
+            params.avatar =avatar.value
+        }
+        axios.post(regUser,params).then(({data})=>{
             alert(data.msg)
         })
     }
@@ -72,12 +79,14 @@ function Users(props) {
                 <div>user_name：{userItem[i].user_name}</div>
                 <div>user_id：{userItem[i].user_id}</div>
                 <div>_id：{userItem[i]._id}</div>
+                <img alt='' style={{heigth:'200px',width:'100px'}} src={userItem[i].avatar} />
             </div>)
         }
         return(arr)
     }
     return (
         <div className='login'>
+            <Avatar />
             <Input placeholder='用户名称' onChange={(e)=>handleChange(e,'name')} value={addUser.user_name} /><br />
             <Input placeholder='用户ID' onChange={(e)=>handleChange(e,'ids')} value={addUser.user_id} /><br />
             <Input placeholder='密码' onChange={(e)=>handleChange(e,'pass')} value={addUser.user_pwd} /><br />

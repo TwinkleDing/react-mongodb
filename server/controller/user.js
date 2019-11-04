@@ -16,13 +16,13 @@ module.exports = {
         }
         return;
       }
-      // if(avatar == ''){
-      //   ctx.body = {
-      //     code: 401,
-      //     msg: "注册失败，请上传头像!"
-      //   }
-      //   return;
-      // }
+      if(avatar == ''){
+        ctx.body = {
+          code: 401,
+          msg: "注册失败，请上传头像!"
+        }
+        return;
+      }
       if(user_pwd.length < 5){
         ctx.body = {
           code: 401,

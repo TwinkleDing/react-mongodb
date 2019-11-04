@@ -8,8 +8,8 @@ axios.interceptors.request.use(function (config) {
   token = JSON.stringify(store.getState()).length>2? store.getState().user.value.token :''
   if (token) {
       //将token放到请求头发送给服务器,将tokenkey放在请求头中
-      config.headers.accessToken = token;     
-      config.headers.Authorization = token;     
+      config.headers.accessToken = token
+      config.headers.Authorization = token
   }
   return config;
 

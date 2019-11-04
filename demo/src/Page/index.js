@@ -3,11 +3,12 @@ import axios from '../axios/index';
 import store from '../store/index'
 import { userInfo } from '../api/user'
 import { leaveList } from '../api/leave'
-import {Button,Input} from 'antd';
+import {Button,Input,Pagination} from 'antd';
 
-let userS = store.getState().user
 function Index(){
+    let userS = store.getState().user
     const [newLeave, setNewLeave] = useState('')
+    const [newTotalPage, setTotalPage] = useState(0)
     const [user, setUser] = useState({});
     useEffect(() => {
         if(userS){
@@ -24,10 +25,17 @@ function Index(){
     useEffect(() => {
         getList()
     },[])
-    function getList(){
-        axios.get(leaveList).then(({data})=>{
+    function getList(page){
+        axios.get(leaveList,{
+            params:{
+                page,
+                size:10
+            }
+        }).then((res)=>{
+            const data=res.data
             console.log(data)
             setLeave(data.data.list)
+            setTotalPage(data.data.pagination.total)
         })
     }
     function List() {
@@ -55,11 +63,16 @@ function Index(){
             getList()
         })
     }
+    function onChange(pageNumber) {
+        getList(pageNumber)
+    }
     return(<div>
+        <img alt='' src={user.avatar} style={{heigth:'200px',width:'100px'}} />
         <div>{user.user_name}已登录</div>
         <Input onChange={(e)=>handleChange(e)} value={newLeave}  />
         <Button type="primary" onClick={addLeave}>添加留言</Button>
         <List />
+        <Pagination showQuickJumper total={newTotalPage} onChange={onChange} />
     </div>)
 }
 export default Index;
