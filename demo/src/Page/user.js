@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {userList as getList, regUser, loginUser} from '../api/user'
 import store from '../store/index'
-import {Button,Input} from 'antd';
+import {Button,Input,message} from 'antd';
 import '../App.css';
 import Avatar from '../components/avatar'
 
@@ -60,7 +60,7 @@ function Users(props) {
         axios.post(loginUser,addUser).then(({data})=>{
             console.log(data)
             setUserInfo(data.data)
-            alert(data.msg)
+            message.success(data.msg);
             const action = {
                 type: 'user',
                 value: data.data

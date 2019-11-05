@@ -3,9 +3,9 @@ import axios from '../axios/index';
 import store from '../store/index'
 import { userInfo } from '../api/user'
 import { leaveList } from '../api/leave'
-import {Button,Input,Pagination} from 'antd';
+import {Button,Input,Pagination,message} from 'antd';
 
-function Index(){
+function Index(props){
     let userS = store.getState().user
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
@@ -66,9 +66,17 @@ function Index(){
     function onChange(pageNumber) {
         getList(pageNumber)
     }
+    let logOut = ()=>{
+        console.log(1)
+        sessionStorage.clear()
+            message.success('退出登录');
+            props.history.push('/login')
+    }
     return(<div>
         <img alt='' src={user.avatar} style={{heigth:'200px',width:'100px'}} />
-        <div>{user.user_name}已登录</div>
+        <div>{user.user_name}已登录
+            <Button type="primary" onClick={logOut}>退出登录</Button>
+        </div>
         <Input onChange={(e)=>handleChange(e)} value={newLeave}  />
         <Button type="primary" onClick={addLeave}>添加留言</Button>
         <List />
