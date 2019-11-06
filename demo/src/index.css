@@ -12,6 +12,9 @@ body {
   background-image: url('./img/loginBackground/girl.png');
   background-size: 100% 100%;
 }
+section,header,footer,aside,ul,li{
+  background: none!important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

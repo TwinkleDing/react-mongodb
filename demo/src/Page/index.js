@@ -70,7 +70,8 @@ function Index(props){
         console.log(1)
         sessionStorage.clear()
             message.success('退出登录');
-            props.history.push('/login')
+            console.log(props)
+            // props.history.push('/login')
     }
     return(<div>
         <img alt='' src={user.avatar} style={{heigth:'200px',width:'100px'}} />
