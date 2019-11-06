@@ -1,6 +1,37 @@
-.login-background{
+.login{
     width: 100%;
     height: 100%;
     background-image: url('../img/loginBackground/girl.png');
     background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-row{
+        display: flex;
+        justify-content: center;
+    }
+    &-box{
+        margin-top: -100px;
+        width: 500px;
+        padding: 70px 0;
+        border: 2px solid #148ec3;
+        border-radius: 20px;
+        .avatar-uploader{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    &-button{
+        display: flex;
+        justify-content: space-around;
+        button{
+            height: 40px;
+            width: 100px;
+        }
+    }
+    input{
+        background: none;
+        margin-bottom: 20px;
+        height: 40px;
+    }
 }

@@ -46,7 +46,6 @@ class Avatar extends React.Component {
       });
     }
   };
-
   render() {
     const uploadButton = (
       <div>
