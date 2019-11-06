@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
-import '../css/login.scss';
+import '../css/login.less';
 import axios from 'axios';
 import {Button,Input,message} from 'antd';
 
