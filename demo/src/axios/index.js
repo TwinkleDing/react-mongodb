@@ -7,7 +7,7 @@ axios.interceptors.request.use(function (config) {
   let token
   if(JSON.stringify(store.getState()).length>2) {
     if(store.getState().user) {
-      token = store.getState().user.value.toke
+      token = store.getState().user.value.token
     }
   }
   if (token) {

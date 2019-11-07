@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import '../App.css';
-import '../css/login.less';
+import '@/css/App.css';
+import '@/css/login.less';
 import axios from 'axios';
-import store from '../store/index'
+import store from '@/store/index'
 import {Button,Input,Row,Col,message} from 'antd';
-import {regUser, loginUser} from '../api/user'
-import Avatar from '../components/avatar'
+import {regUser, loginUser} from '@/api/user'
+import Avatar from '@/components/avatar'
 
 function Login(props) {
     const [regLogin, setRegLogin] = useState(true)

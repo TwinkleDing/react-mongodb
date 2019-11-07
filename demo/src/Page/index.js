@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../axios/index';
-import store from '../store/index'
-import { userInfo } from '../api/user'
-import { leaveList } from '../api/leave'
+import axios from '@/axios/index';
+import store from '@/store/index'
+import { userInfo } from '@/api/user'
+import { leaveList } from '@/api/leave'
 import {Button,Input,Pagination,message} from 'antd';
 
 function Index(props){
-    const [userS] = useState(store.getState().user)
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
     const [user, setUser] = useState({});
-    useEffect((userS) => {
+    useEffect(() => {
+        let userS = store.getState().user
         if(userS){
             axios.get(userInfo,{
                 params:{

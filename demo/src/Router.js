@@ -1,8 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router , Route, Redirect, Switch} from 'react-router-dom';
+import {BrowserRouter as Router , Route, Redirect, Switch, Link} from 'react-router-dom';
 import store from './store/index'
 import Index from './Page/index'
 import Login from './Page/login';
+import Leave from './Page/leave';
 import Headers from './components/Header';
 import { Layout, Menu, Icon } from 'antd';
 
@@ -25,11 +26,11 @@ const Routerss =(<Router>
                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                             <Menu.Item key="1">
                                 <Icon type="pie-chart" />
-                                <span>Option 1</span>
+                                <Link to={`/index`}>首页</Link>
                             </Menu.Item>
                             <Menu.Item key="2">
                                 <Icon type="desktop" />
-                                <span>Option 2</span>
+                                <Link to={`/leave`}>留言板</Link>
                             </Menu.Item>
                         <SubMenu
                             key="sub1"
@@ -64,9 +65,13 @@ const Routerss =(<Router>
                     </Sider>
                     <Layout>
                         <Content style={{ margin: '16px',minHeight: 'auto' }}>
-                            {user?<Route exact path="/index" component={Index} />:''}
+                            {user?
+                                <Switch>
+                                    <Route exact path="/index" component={Index} />
+                                    <Route exact path="/leave" component={Leave} />
+                                </Switch>:''}
                         </Content>
-                        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                        <Footer style={{ textAlign: 'center' }}>TwinkleDing ©2019 Created by Twinkle Ding</Footer>
                     </Layout>
                 </Layout>
             </Layout>

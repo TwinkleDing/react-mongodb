@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import Routerss from './Router';
-import './index.css';
+import '@/css/index.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(Routerss, document.getElementById('root'));

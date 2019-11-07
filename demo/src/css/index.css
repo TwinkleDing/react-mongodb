@@ -9,9 +9,12 @@ body {
 #root{
   height: 100%;
   width: 100%;
-  background-image: url('./img/loginBackground/girl.png');
+  background-image: url('../img/loginBackground/girl.png');
   background-size: 100% 100%;
   overflow: hidden;
+}
+.ant-menu-item > a {
+  display: inline;
 }
 section,header,footer,aside,ul,li{
   background: none!important;
