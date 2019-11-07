@@ -1,26 +1,25 @@
 import React from 'react';
-import {BrowserRouter as Router , Route, Redirect, Link} from 'react-router-dom';
+import {BrowserRouter as Router , Route, Redirect} from 'react-router-dom';
+import { Lifecycle } from 'react-router';
 import store from './store/index'
 import Index from './Page/index'
-import User from './Page/user';
 import Login from './Page/login';
-import Leave from './Page/leave';
 import Headers from './components/Header';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 let user = store.getState().user
 const Routerss =(<Router>
-    {!user?<Redirect to="/login"/>:''}
+    {!user?<Redirect to="/login" component={Login} />:'`'}
     <Route exact path="/" component={Index} />
     <Route exact path="/login" component={Login} />
-    <Route>
+    <Route path='/app'>
         {/* <Route exact path="/index" component={Index} />
         <Route exact path="/leave" component={Leave} /> */}
          <Layout style={{ minHeight: '100vh',maxHeight: '100vh' }}>
             <Header style={{ padding: 0, }} >
-                <Headers />
+                <Route component={Headers} />
             </Header>
             <Layout>
                 <Sider>
@@ -67,11 +66,7 @@ const Routerss =(<Router>
                 </Sider>
                 <Layout>
                     <Content style={{ margin: '16px',minHeight: 'auto' }}>
-                        {/* <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                        </Breadcrumb> */}
-                            <Route exact path="/index" component={Index} />
+                        <Route path="/app/index" component={Index} />
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
                 </Layout>

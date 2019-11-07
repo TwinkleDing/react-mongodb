@@ -6,7 +6,7 @@ import { leaveList } from '../api/leave'
 import {Button,Input,Pagination,message} from 'antd';
 
 function Index(props){
-    let userS = store.getState().user
+    const [userS] = useState(store.getState().user)
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
     const [user, setUser] = useState({});
@@ -70,8 +70,7 @@ function Index(props){
         console.log(1)
         sessionStorage.clear()
             message.success('退出登录');
-            console.log(props)
-            // props.history.push('/login')
+            props.history.push('/login')
     }
     return(<div>
         <img alt='' src={user.avatar} style={{heigth:'200px',width:'100px'}} />

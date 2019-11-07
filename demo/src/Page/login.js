@@ -10,8 +10,8 @@ import Avatar from '../components/avatar'
 function Login(props) {
     const [regLogin, setRegLogin] = useState(true)
     const [addUser, addUsers] = useState({
-        user_pwd:'woshidingyuliang',
-        user_id:'dingyuliang'
+        user_pwd:'bilibili',
+        user_id:'bilibili'
     })
     function handleChange(e,type) {
         let userInfo = addUser;
@@ -38,6 +38,7 @@ function Login(props) {
     }
     function login() {
         axios.post(loginUser,addUser).then(({data})=>{
+            console.log(data)
             if(data.code === 200) {
                 const action = {
                     type: 'user',
@@ -45,7 +46,7 @@ function Login(props) {
                 }
                 store.dispatch(action)
                 message.success(data.msg);
-                props.history.push('/index')
+                props.history.push('/app/index')
             }else{
                 message.error(data.msg);
             }
