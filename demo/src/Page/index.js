@@ -10,7 +10,7 @@ function Index(props){
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
     const [user, setUser] = useState({});
-    useEffect(() => {
+    useEffect((userS) => {
         if(userS){
             axios.get(userInfo,{
                 params:{

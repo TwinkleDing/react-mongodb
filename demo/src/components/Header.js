@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from '../axios/index';
+import React, { useState } from 'react';
 import store from '../store/index'
 import '@/css/header.less'
 import {Button,message} from 'antd';

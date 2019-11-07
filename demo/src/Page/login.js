@@ -46,7 +46,7 @@ function Login(props) {
                 }
                 store.dispatch(action)
                 message.success(data.msg);
-                props.history.push('/app/index')
+                window.location.href='./index'
             }else{
                 message.error(data.msg);
             }
