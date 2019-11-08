@@ -16,9 +16,6 @@ function Users(props) {
             getUser(data.data)
         })
     }
-    function hideUserList() {
-        getUser([])
-    }
     return (
         <div className='user'>
             {/* <div className='user-btns'>
@@ -36,7 +33,7 @@ function Users(props) {
                     key="avatar"
                     render={(text, record) => {
                         if(text.avatar !== '') {
-                            return (<img src={text.avatar}/>)
+                            return (<img src={text.avatar} alt='' />)
                         }else{
                             return 
                         }

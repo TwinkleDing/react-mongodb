@@ -5,7 +5,6 @@ import axios from 'axios';
 import store from '@/store/index'
 import {Button,Input,Row,Col,message} from 'antd';
 import {regUser, loginUser} from '@/api/user'
-import Avatar from '@/components/avatar'
 
 function Login(props) {
     const [regLogin, setRegLogin] = useState(true)
@@ -53,14 +52,8 @@ function Login(props) {
         })
     }
     function addNewUser() {
-        let avatar = store.getState().avatar
-        console.log(avatar)
         let params =addUser
-        if(avatar){
-            params.avatar =avatar.value
-        }
         axios.post(regUser,params).then(({data})=>{
-            alert(data.msg)
             if(data.code === 200) {
                 const action = {
                     type: 'avatar',
@@ -103,7 +96,7 @@ function Login(props) {
                 </Row>:
                 <Row className='login-row'>
                     <Col span={14}>
-                        <Avatar style={{display:'flex','justify-content': 'center'}} />
+                        {/* <Avatar style={{display:'flex','justify-content': 'center'}} /> */}
                         <Input placeholder='请输入名称'  onChange={(e)=>handleChange(e,'name')} value={addUser.user_name} />
                         <Input placeholder='请输入注册ID'  onChange={(e)=>handleChange(e,'id')} value={addUser.user_id} />
                         <Input placeholder='请输入密码'  onChange={(e)=>handleChange(e,'psw')} value={addUser.user_pwd} />

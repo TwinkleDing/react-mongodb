@@ -1,10 +1,11 @@
+'use strict'
 import React, { useState, useEffect } from 'react';
 import axios from '@/axios/index';
 import { leaveList } from '@/api/leave'
 import '@/css/leave.less'
 import {Button,Input,Pagination,message} from 'antd';
 
-function Index(props){
+function Leave(){
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
     const [leave, setLeave] = useState([]);
@@ -66,4 +67,4 @@ function Index(props){
         </div>
     </div>)
 }
-export default Index;
+export default Leave;
