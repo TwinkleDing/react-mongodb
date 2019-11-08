@@ -8,6 +8,10 @@ let commentSchema = new Schema({
         ref: 'User'
     },
     user_name: String,
+    avatar: {
+        type: String,
+        default: ""
+    },
     content: String,
     create_time: {
         type: String,

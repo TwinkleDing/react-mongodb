@@ -24,3 +24,18 @@
 .login{
   width: 300px;
 }
+textarea.ant-input{
+  background-color: transparent;
+}
+.ant-pagination-options-quick-jumper input{
+  background-color: transparent;
+}
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link{
+  background-color: transparent;
+}
+.ant-table-tbody > tr > td{
+  padding: 8px;
+}
+ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
+  background: #276bb1;
+}

@@ -73,6 +73,7 @@ module.exports = {
       let comment = new Comment({
         user_id: ctx._id,
         user_name: user.user_name,
+        avatar: user.avatar,
         content
       });
       let res = await comment.save();

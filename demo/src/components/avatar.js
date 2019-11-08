@@ -1,6 +1,8 @@
 import { Upload, Icon, message } from 'antd';
 import React from 'react'
 import store from '../store/index'
+import {upload} from '@/api/user'
+import axios from '@/axios'
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -43,6 +45,11 @@ class Avatar extends React.Component {
             value: imageUrl
         }
         store.dispatch(action)
+        axios.post(upload,{
+          content:imageUrl
+        }).then(({data})=>{
+            console.log(data)
+        })
       });
     }
   };

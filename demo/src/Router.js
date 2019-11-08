@@ -4,6 +4,8 @@ import store from './store/index'
 import Index from './Page/index'
 import Login from './Page/login';
 import Leave from './Page/leave';
+import User from './Page/user';
+import Files from './Page/file';
 import Headers from './components/Header';
 import { Layout, Menu, Icon } from 'antd';
 
@@ -32,34 +34,25 @@ const Routerss =(<Router>
                                 <Icon type="desktop" />
                                 <Link to={`/leave`}>留言板</Link>
                             </Menu.Item>
-                        <SubMenu
-                            key="sub1"
-                            title={
-                                <span>
+                            <Menu.Item key="3">
                                 <Icon type="user" />
-                                <span>User</span>
-                                </span>
-                            }
-                        >
-                            <Menu.Item key="3">Tom</Menu.Item>
-                            <Menu.Item key="4">Bill</Menu.Item>
-                            <Menu.Item key="5">Alex</Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sub2"
-                            title={
-                                <span>
-                                <Icon type="team" />
-                                <span>Team</span>
-                                </span>
-                            }
-                        >
+                                <Link to={`/user`}>用户列表</Link>
+                            </Menu.Item>
+                            <SubMenu
+                                key="sub2"
+                                title={
+                                    <span>
+                                    <Icon type="team" />
+                                    <span>Team</span>
+                                    </span>
+                                }
+                            >
                             <Menu.Item key="6">Team 1</Menu.Item>
                             <Menu.Item key="8">Team 2</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="9">
                             <Icon type="file" />
-                            <span>File</span>
+                            <Link to={`/file`}>文件上传</Link>
                         </Menu.Item>
                     </Menu>
                     </Sider>
@@ -69,6 +62,8 @@ const Routerss =(<Router>
                                 <Switch>
                                     <Route exact path="/index" component={Index} />
                                     <Route exact path="/leave" component={Leave} />
+                                    <Route exact path="/user" component={User} />
+                                    <Route exact path="/file" component={Files} />
                                 </Switch>:''}
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>TwinkleDing ©2019 Created by Twinkle Ding</Footer>

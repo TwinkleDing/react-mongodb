@@ -10,6 +10,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = require('./user')
 const commentSchema = require('./comment')
+const imgSchema = require('./img')
 
 
 
@@ -22,3 +23,4 @@ let checkcodeSchema = new Schema({
 exports.User = mongoose.model('User', userSchema); 
 exports.Comment = mongoose.model('Comment', commentSchema); 
 exports.Checkcode = mongoose.model('Checkcode', checkcodeSchema);
+exports.Img = mongoose.model('Img', imgSchema);

@@ -7,7 +7,7 @@ import {Button,Input,Pagination,message} from 'antd';
 function Index(props){
     const [newLeave, setNewLeave] = useState('')
     const [newTotalPage, setTotalPage] = useState(0)
-    const [leave, setLeave] = useState({});
+    const [leave, setLeave] = useState([]);
     useEffect(() => {
         getList()
     },[])
@@ -28,14 +28,14 @@ function Index(props){
         let leaveItem = leave
         let arr = []
         for(let i=0;i<leaveItem.length;i++){
-            arr.push(<div key={i}>
-                <div>
-                    <span>
+            arr.push(<div key={i} className='leave-list'>
+                <img src={leaveItem[i].avatar} alt='' />
+                <span>
+                    <div>
                         留言人：{leaveItem[i].user_name}
-                    </span>
-                    <span><img src='' /></span>
-                </div>
-                <div>留言内容：{leaveItem[i].content}</div>
+                    </div>
+                    <div>留言内容：{leaveItem[i].content}</div>
+                </span>
             </div>)
         }
         return arr
@@ -49,7 +49,7 @@ function Index(props){
             content: newLeave,
         }
         axios.post(leaveList,params).then(({data})=>{
-            data.msg === 200 ? message.success(data.msg) : message.error(data.msg)
+            data.code === 200 ? message.success(data.msg) : message.error(data.msg)
             getList()
         })
     }

@@ -12,5 +12,7 @@ router.get('/', async (ctx, next) => {
 .post("/api/leave", controller.leave.addLeaver)// 添加留言
 .get("/api/leave", controller.leave.getLeaves)// 留言获取
 .delete("/api/leave/:id", controller.leave.deleteLeaver) // 删除留言
- 
+
+.post('/api/upload', controller.img.upload)
+.get('/api/upload', controller.img.getFile)
 module.exports = router

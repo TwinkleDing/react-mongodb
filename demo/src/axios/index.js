@@ -1,5 +1,7 @@
-import store from '../store/index'
+import store from '@/store/index'
 import axios from 'axios'
+import {message} from 'antd';
+
 // http request拦截器 添加一个请求拦截器
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
@@ -21,5 +23,26 @@ axios.interceptors.request.use(function (config) {
   // Do something with request error
   return Promise.reject(error);
 });
+//返回状态判断
+axios.interceptors.response.use(
+  response => {
+    return response
+  },
+  error => {
+    if (error.response) {
+      
+      if( error.response.status === 401 ) {
+        message.error(error.response.data,2,()=>{
+          window.location.href = '/login'
+        })
+        const action = {
+          type: 'user',
+          value: {}
+        }
+        store.dispatch(action)
+      }
+    }
+    return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+  })
 
 export default axios
