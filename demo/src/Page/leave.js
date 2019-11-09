@@ -1,9 +1,8 @@
-'use strict'
 import React, { useState, useEffect } from 'react';
 import axios from '@/axios/index';
 import { leaveList } from '@/api/leave'
 import '@/css/leave.less'
-import {Button,Input,Pagination,message} from 'antd';
+import {Button,Input,Pagination,message,notification} from 'antd';
 
 function Leave(){
     const [newLeave, setNewLeave] = useState('')
@@ -51,6 +50,7 @@ function Leave(){
         }
         axios.post(leaveList,params).then(({data})=>{
             data.code === 200 ? message.success(data.msg) : message.error(data.msg)
+        }).then(()=>{
             getList()
         })
     }

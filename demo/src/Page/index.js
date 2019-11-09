@@ -59,7 +59,8 @@ function Index(props){
             content: newLeave,
         }
         axios.post(leaveList,params).then(({data})=>{
-            console.log(data)
+            data.code === 200 ? message.success(data.msg) : message.error(data.msg)
+        }).then(()=>{
             getList()
         })
     }
