@@ -32,9 +32,9 @@ function Leave(){
                 <img src={leaveItem[i].avatar} alt='' />
                 <span>
                     <div>
-                        留言人：{leaveItem[i].user_name}
+                        <span className='leave-list-title'>留言人：</span>{leaveItem[i].user_name}
                     </div>
-                    <div>留言内容：{leaveItem[i].content}</div>
+                    <div><span className='leave-list-title'>留言内容：</span>{leaveItem[i].content}</div>
                 </span>
             </div>)
         }

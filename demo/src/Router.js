@@ -6,6 +6,7 @@ import Login from './Page/login';
 import Leave from './Page/leave';
 import User from './Page/user';
 import Files from './Page/file';
+import Issue from './Page/issue';
 import Headers from './components/Header';
 import { Layout, Menu, Icon } from 'antd';
 
@@ -54,6 +55,10 @@ const Routerss =(<Router>
                             <Icon type="file" />
                             <Link to={`/file`}>文件上传</Link>
                         </Menu.Item>
+                        <Menu.Item key="10">
+                            <Icon type="issues-close" />
+                            <Link to={`/issue`}>问题</Link>
+                        </Menu.Item>
                     </Menu>
                     </Sider>
                     <Layout>
@@ -64,6 +69,7 @@ const Routerss =(<Router>
                                     <Route exact path="/leave" component={Leave} />
                                     <Route exact path="/user" component={User} />
                                     <Route exact path="/file" component={Files} />
+                                    <Route exact path="/issue" component={Issue} />
                                 </Switch>:''}
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>TwinkleDing ©2019 Created by Twinkle Ding</Footer>
