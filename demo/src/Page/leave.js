@@ -57,8 +57,26 @@ function Leave(){
     function onChange(pageNumber) {
         getList(pageNumber)
     }
+    let sort=(type)=>{
+        axios.get(leaveList,{
+            params:{
+                page: 1,
+                size: 10,
+                sort:type
+            }
+        }).then((res)=>{
+            const data=res.data
+            console.log(data)
+            setLeave(data.data.list)
+            setTotalPage(data.data.pagination.total)
+        })
+    }
     const { TextArea } = Input;
     return(<div className='leave'>
+        <div>
+            <Button type='primary' onClick={()=>sort('zheng')} >正序</Button>
+            <Button type='primary' onClick={()=>sort('dao')}>倒序</Button>
+        </div>
         <List />
         <Pagination showQuickJumper total={newTotalPage} onChange={onChange} />
         <div className='leave-new'>

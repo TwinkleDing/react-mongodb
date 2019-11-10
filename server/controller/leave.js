@@ -9,7 +9,7 @@ module.exports = {
     @param: page => 当前页数 默认：1
   */  
   async getLeaves(ctx, next) {
-    let {size = 10, page = 1} = ctx.query;
+    let {size = 10, page = 1, sort = 'dao'} = ctx.query;
     /* 
       这里分页查询有2种方法：
       1. 第一种方法，就是我这里用到的，用skip跳过多少个，然后limit取到多少个
@@ -20,7 +20,7 @@ module.exports = {
     let options = {
       skip: Number((page-1)*size),
       limit: Number(size),
-      sort:{"create_time":"-1"},
+      sort:{"create_time":sort === 'zheng' ? 1 : -1},
       // populate: {
       //   path: 'user_id',
       //   select: "_id user_name avatar"
