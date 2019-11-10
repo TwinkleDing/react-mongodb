@@ -66,7 +66,6 @@ function Leave(){
             }
         }).then((res)=>{
             const data=res.data
-            console.log(data)
             setLeave(data.data.list)
             setTotalPage(data.data.pagination.total)
         })

@@ -30,7 +30,6 @@ axios.interceptors.response.use(
   },
   error => {
     if (error.response) {
-      
       if( error.response.status === 401 ) {
         message.error(error.response.data,2,()=>{
           window.location.href = '/login'
@@ -42,7 +41,7 @@ axios.interceptors.response.use(
         store.dispatch(action)
       }
     }
-    return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+    return Promise.reject(error)   // 返回接口返回的错误信息
   })
 
 export default axios
