@@ -11,7 +11,6 @@ import Headers from './components/Header';
 import { Layout, Menu, Icon } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 let user = store.getState().user
 const Routerss =(<Router>
     {!user?<Redirect to="/login"/>:''}
@@ -39,27 +38,15 @@ const Routerss =(<Router>
                                 <Icon type="user" />
                                 <Link to={`/user`}>用户列表</Link>
                             </Menu.Item>
-                            <SubMenu
-                                key="sub2"
-                                title={
-                                    <span>
-                                    <Icon type="team" />
-                                    <span>Team</span>
-                                    </span>
-                                }
-                            >
-                            <Menu.Item key="6">Team 1</Menu.Item>
-                            <Menu.Item key="8">Team 2</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item key="9">
-                            <Icon type="file" />
-                            <Link to={`/file`}>文件上传</Link>
-                        </Menu.Item>
-                        <Menu.Item key="10">
-                            <Icon type="issues-close" />
-                            <Link to={`/issue`}>问题</Link>
-                        </Menu.Item>
-                    </Menu>
+                            <Menu.Item key="9">
+                                <Icon type="file" />
+                                <Link to={`/file`}>文件上传</Link>
+                            </Menu.Item>
+                            <Menu.Item key="10">
+                                <Icon type="issues-close" />
+                                <Link to={`/issue`}>问题</Link>
+                            </Menu.Item>
+                        </Menu>
                     </Sider>
                     <Layout>
                         <Content style={{ margin: '16px',minHeight: 'auto' }}>

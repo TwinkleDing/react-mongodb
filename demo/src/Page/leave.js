@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from '@/axios/index';
 import { leaveList } from '@/api/leave'
 import '@/css/leave.less'
-import {Button,Input,Pagination,message,notification} from 'antd';
+import {Button,Input,Pagination,message} from 'antd';
 
 function Leave(){
     const [newLeave, setNewLeave] = useState('')
