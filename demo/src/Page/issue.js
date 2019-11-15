@@ -10,7 +10,7 @@ function Issue(){
             <li>文件上传返回url后台问题</li>
             <li>只有使用router组件渲染的组件才props具有router的api，使用withRouter包裹起来</li>
             <li>reducer和action可分开写</li>
-            <li>之后用readux写</li>
+            <li>之后用readux再写一下</li>
         </ol>
     </div>)
 }
