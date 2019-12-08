@@ -36,32 +36,28 @@ function Login(props) {
         }
     }
     function login() {
-
-        axios.get('').then(res=>{
-            console.log(res)
+        axios.post(loginUser,addUser).then(({data})=>{
+            console.log(data)
+            if(data.code === 200) {
+                const action = {
+                    type: 'USER',
+                    value: data.data
+                }
+                store.dispatch(action)
+                message.success(data.msg).then(()=>{
+                    props.history.push('/index')
+                });
+            }else{
+                message.error(data.msg);
+            }
         })
-
-        // axios.post(loginUser,addUser).then(({data})=>{
-        //     console.log(data)
-        //     if(data.code === 200) {
-        //         const action = {
-        //             type: 'user',
-        //             value: data.data
-        //         }
-        //         store.dispatch(action)
-        //         message.success(data.msg);
-        //         window.location.href='./index'
-        //     }else{
-        //         message.error(data.msg);
-        //     }
-        // })
     }
     function addNewUser() {
         let params =addUser
         axios.post(regUser,params).then(({data})=>{
             if(data.code === 200) {
                 const action = {
-                    type: 'avatar',
+                    type: 'AVATAR',
                     value: ''
                 }
                 store.dispatch(action)

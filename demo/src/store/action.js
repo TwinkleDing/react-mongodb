@@ -1,2 +1,2 @@
-const USER = 'USER';
-const AVATAR = 'AVATAR';
+export const USER = 'USER';
+export const AVATAR = 'AVATAR';
