@@ -45,7 +45,9 @@ function Login(props) {
                 }
                 store.dispatch(action)
                 message.success(data.msg).then(()=>{
-                    props.history.push('/index')
+                    props.history.push({
+                        pathname: '/index'
+                    })
                 });
             }else{
                 message.error(data.msg);
