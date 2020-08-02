@@ -19,7 +19,7 @@ module.exports = {
         }
       }
     } catch(e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: '获取验证码失败！'

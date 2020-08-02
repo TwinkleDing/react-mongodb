@@ -11,7 +11,8 @@ import Headers from './components/Header';
 import { Layout, Menu, Icon } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-let user = store.getState().user
+let user = store.getState() && store.getState().user ? store.getState().user : false;
+console.log(store.getState())
 const Routerss =(<Router>
     {!user?<Redirect to="/login"/>:''}
     <Switch>

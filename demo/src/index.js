@@ -3,7 +3,8 @@ import Routerss from './Router';
 import '@/css/index.css';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(Routerss, document.getElementById('root'));
+ReactDOM.render(
+  Routerss, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

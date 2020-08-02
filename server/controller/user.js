@@ -81,7 +81,7 @@ module.exports = {
         }
       }
     }catch (e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: "注册失败，服务器异常！"
@@ -131,7 +131,7 @@ module.exports = {
         }
       }
     } catch(e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: '登录失败，服务器异常!'
@@ -156,7 +156,7 @@ module.exports = {
         data: res
       }
     }catch(e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: '查询失败，服务器异常，请稍后再试!'
@@ -180,7 +180,7 @@ module.exports = {
         data: res
       }
     }catch(e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: '查询失败，服务器异常，请稍后再试!'

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import store from '../store/index'
 import '@/css/header.less'
-import {Button,message} from 'antd';
+import { Button } from 'antd';
 
 function Header(props) {
     const [user] = useState(store.getState().user);
+    console.log(user)
     let logOut = ()=>{
-        sessionStorage.clear()
-            message.success('退出登录');
-            props.history.push('/login')
+        localStorage.clear()
+        props.history.push('/login')
     }
     return(
         <div className='header'>

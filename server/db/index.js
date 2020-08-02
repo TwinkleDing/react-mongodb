@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = mongoose.connect("mongodb://localhost:27017/test", {useNewUrlParser:true}, function(err){
+const url = "mongodb://localhost:27017/test";
+const db = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function(err){
   if(err){
     console.log(err)
   }else{
@@ -11,8 +12,6 @@ const Schema = mongoose.Schema;
 const userSchema = require('./user')
 const commentSchema = require('./comment')
 const imgSchema = require('./img')
-
-
 
 // 验证码
 let checkcodeSchema = new Schema({

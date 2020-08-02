@@ -1,11 +1,11 @@
-const Img = require('../db').Img
+const Img = require('../db').Img;
 const xss = require("xss");
 
 module.exports = {
     // 上传图片
     async upload(ctx, next) {
         let { content = '' } = ctx.request.body;
-        console.log(ctx)
+        console.error(ctx)
         try {
             let date = new Date().getTime()
             let filePath ='http://localhost:3333/api/upload/'+date
@@ -28,7 +28,7 @@ module.exports = {
                 }
             }
         } catch (e){
-            console.log(e);
+            console.error(e);
             ctx.body = {
                 code: 500,
                 msg: '上传失败，服务器异常，请稍后再试!'
@@ -52,7 +52,7 @@ module.exports = {
                 }
             }
         } catch (e){
-            console.log(e);
+            console.error(e);
             ctx.body = {
                 code: 500,
                 msg: '查看失败，服务器异常，请稍后再试!'

@@ -44,11 +44,10 @@ function Login(props) {
                     value: data.data
                 }
                 store.dispatch(action)
-                message.success(data.msg).then(()=>{
-                    props.history.push({
-                        pathname: '/index'
-                    })
-                });
+                props.history.push({
+                    pathname: '/index'
+                })
+                // window.location.href = '/index'
             }else{
                 message.error(data.msg);
             }

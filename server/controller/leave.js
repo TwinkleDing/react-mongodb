@@ -41,7 +41,7 @@ module.exports = {
       }
     }
    }catch(e) {
-     console.log(e);
+     console.err(e);
      ctx.body = {
        code: 500,
        msg: "获取留言失败，服务器异常，请稍后再试！"
@@ -90,7 +90,7 @@ module.exports = {
         }
       }
     } catch (e){
-      console.log(e);
+      console.err(e);
       ctx.body = {
         code: 500,
         msg: '留言失败，服务器异常，请稍后再试!'
@@ -114,7 +114,7 @@ module.exports = {
         }
       }
     } catch(e){
-      console.log(e);
+      console.error(e);
       ctx.body = {
         code: 500,
         msg: '删除留言失败，服务器异常!'
